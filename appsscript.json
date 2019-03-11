@@ -6,7 +6,7 @@
   ],
   "gmail": {
     "name": "Pyramid Planner - Logic in Writing",
-    "logoUrl": "https://www.gstatic.com/images/icons/material/system/1x/label_googblue_24dp.png",
+    "logoUrl": "https://github.com/benmathes/pyramid_gmail_addon/raw/master/pyramid_icon.png",
     "contextualTriggers": [{
       "unconditional": {
       },
