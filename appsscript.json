@@ -3,8 +3,7 @@
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/gmail.addons.execute",
     "https://www.googleapis.com/auth/gmail.addons.current.message.action",
-    "https://www.googleapis.com/auth/gmail.modify",
-    "https://www.googleapis.com/auth/gmail.composeTrigger"
+    "https://www.googleapis.com/auth/gmail.modify"
   ],
   "gmail": {
     "name": "SCQA",
