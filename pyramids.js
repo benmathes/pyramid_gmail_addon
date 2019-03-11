@@ -87,11 +87,39 @@ function buildSCQAPromptsCard() {
 }
 
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function formatQuestion(question) {
+  var qTrimmed = question.trim();
+  var endsWithQMark = qTrimmed.slice(-1) === '?';
+  if (!endsWithQMark) {
+    return qTrimmed + "?";
+  }
+  else {
+    return qTrimmed;
+  }
+}
+
+function formatComplication(complication) {
+  var cTrimmed = complication.trim();
+  var buts = ['But', 'However'];
+  var firstWord = cTrimmed.split(/[\s,]/)[0];
+  var startsWithBut = buts.indexOf(firstWord) != -1;
+  if (!startsWithBut) {
+    return "But " + cTrimmed;
+  }
+  else {
+    return cTrimmed;
+  }
+};
+
 function formatEmail(formInput) {
-  return "" + formInput.situation + '<br/><br/><br/>'
-    + formInput.complication + '<br/><br/>'
-    + formInput.question + '<br/><br/>'
-    + formInput.answer;
+  return "" + formInput.situation.trim() + '<br/><br/><br/>'
+    + formatComplication(formInput.complication) + '<br/><br/>'
+    + formatQuestion(formInput.question) + '<br/><br/>'
+    + formInput.answer.trim();
 }
 
 /**
@@ -101,7 +129,7 @@ function formatEmail(formInput) {
  * @return {UpdateDraftActionResponse}
  */
 function insertSCQAToEmail(e) {
-  var response = CardService.newUpdateDraftActionResponseBuilder()
+  var updateDraftActionResponse = CardService.newUpdateDraftActionResponseBuilder()
       .setUpdateDraftBodyAction(
         CardService.newUpdateDraftBodyAction()
           .addUpdateContent(
@@ -110,5 +138,5 @@ function insertSCQAToEmail(e) {
           .setUpdateType(
             CardService.UpdateDraftBodyType.IN_PLACE_INSERT))
       .build();
-  return response;
+  return updateDraftActionResponse;
 }
