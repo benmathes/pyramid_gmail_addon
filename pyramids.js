@@ -16,8 +16,6 @@ function interactivePyramid(e) {
   var messageId = e.messageMetadata.messageId;
   var message = GmailApp.getMessageById(messageId);
 
-  // NEED TO: GMAIL COMPOSE TRIGGER
-
   // old sample code.
   //// Get user and thread labels as arrays to enable quick sorting and indexing.
   //var threadLabels = message.getThread().getLabels();
@@ -25,8 +23,6 @@ function interactivePyramid(e) {
   //var labelsInUse = getLabelArray(threadLabels);
   //
   //// Create a section for that contains all user Labels.
-  var section = CardService.newCardSection()
-      .setHeader("<font color=\"#1257e0\"><b>Build a Pyramid</b></font>");
   //
   //// Construct the Minto Question form:
   //
@@ -45,11 +41,14 @@ function interactivePyramid(e) {
   //// Add the checkbox group to the section.
   //section.addWidget(checkboxGroup);
 
+
+  var promptSection = CardService.newCardSection();
+
   // Build the main card after adding the section.
   var card = CardService.newCardBuilder()
-    .setHeader(CardService.newCardHeader()
-    .setTitle('SCQA')
-    .addSection(section)
+    .setHeader(CardService.newCardHeader())
+    .setTitle('SCQA Builder')
+    .addSection(promptSection)
     .build();
 
   return [card];
