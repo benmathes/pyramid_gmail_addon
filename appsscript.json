@@ -1,9 +1,12 @@
 {
   "oauthScopes": [
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/gmail.addons.current.action.compose",
     "https://www.googleapis.com/auth/userinfo.email",
     "https://www.googleapis.com/auth/gmail.addons.execute",
     "https://www.googleapis.com/auth/gmail.addons.current.message.action",
-    "https://www.googleapis.com/auth/gmail.modify"
+    "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/gmail.addons.current.message.metadata"
   ],
   "gmail": {
     "name": "SCQA",
@@ -13,7 +16,7 @@
       "selectActions": [
         {
           "text": "SCQA",
-          "runFunction": "interactivePyramid"
+          "runFunction": "getSCQAPromptsUI"
         }
       ],
       "draftAccess": "METADATA"
